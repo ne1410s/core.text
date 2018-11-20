@@ -10,13 +10,13 @@ describe('#format', () => {
         expect(sut).to.equal('hello worl');
     });
 
-    it('should trim a special trailing character', () => {
-        var sut = ne14.text.trimEnd('hello wor$$$', '$');
-        expect(sut).to.equal('hello wor');
+    it('should trim multiple leading characters', () => {
+        var sut = ne14.text.trimStart('xyzworld', 'xyz');
+        expect(sut).to.equal('world');
     });
 
-    it('should trim multiple trailing characters', () => {
-        var sut = ne14.text.trimEnd('hello worldly world', 'world');
-        expect(sut).to.equal('hello worldly ');
+    it('should trim special characters from either end', () => {
+        var sut = ne14.text.trimBoth('!{}inner-test!{}', '!{}');
+        expect(sut).to.equal('inner-test');
     });
 });
