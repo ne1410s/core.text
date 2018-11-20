@@ -9,8 +9,9 @@
   ],
   "types": "./dist/ne14.text.d.ts",
   "scripts": {
-    "test": "rollup -cm && mocha --exit",
-    "bundle": "rollup -c"
+    "test": "npm run clean && npm run build && mocha --exit",
+    "build": "rollup -cm",
+    "clean": "rimraf dist"
   },
   "repository": {
     "type": "git",
@@ -31,6 +32,7 @@
     "chai": "^4.2.0",
     "eslint": "^5.9.0",
     "mocha": "^5.2.0",
+    "rimraf": "^2.6.2",
     "rollup": "^0.67.1",
     "rollup-plugin-typescript2": "^0.18.0",
     "typescript": "^3.1.6"

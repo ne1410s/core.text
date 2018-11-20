@@ -1,13 +1,22 @@
-import { Pi } from './constants';
 
-export default class MyTest {
+export default abstract class Text {
     
-    public area: number;
-    public circumference: number;
+    public static textToBuffer(text: string): ArrayBuffer {
 
-    constructor(public radius: number) {
-        this.area = Pi * this.radius * this.radius;
-        this.circumference = Pi * this.radius * 2;
+        let buffer = new ArrayBuffer(text.length),
+            bufferView = new Uint8Array(buffer);
+
+        for (let i = 0; i < text.length; i++) {
+            bufferView[i] = text[i].charCodeAt(0);
+        }
+
+        return buffer;
+    }
+
+    public static bufferToText(buffer: ArrayBuffer): string {
+
+        return new Uint8Array(buffer)
+            .reduce((acc, cur) => acc + String.fromCharCode(cur), '');
     }
 
 }
