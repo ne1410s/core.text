@@ -1,6 +1,6 @@
 const expect = require('chai').expect;
 const ne14 = {
-    text: require('../dist/ne14.text')
+    text: require('../dist/index')
 };
 
 describe('#buffers', () => {
