@@ -2,12 +2,12 @@
   "name": "@ne1410s/text",
   "version": "0.0.2",
   "description": "ES Text Utilities",
-  "main": "./dist/ne14.text.js",
-  "module": "./dist/ne14.text.es.js",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
   "files": [
     "dist"
   ],
-  "types": "./dist/index.d.ts",
+  "types": "dist/index.d.ts",
   "scripts": {
     "clean": "rimraf dist",
     "build": "rollup -cm",
