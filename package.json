@@ -7,11 +7,12 @@
   "files": [
     "dist"
   ],
-  "types": "./dist/ne14.text.d.ts",
+  "types": "./dist/index.d.ts",
   "scripts": {
-    "test": "npm run clean && npm run build && mocha --exit",
+    "clean": "rimraf dist",
     "build": "rollup -cm",
-    "clean": "rimraf dist"
+    "test": "npm run clean && npm run build && mocha --exit",
+    "publish-patch": "npm version patch && npm run test && npm publish --access public"
   },
   "repository": {
     "type": "git",
