@@ -1,6 +1,6 @@
 const expect = require('chai').expect;
-const ne14 = { 
-    text: require('../dist/index').default 
+const ne14 = {
+    text: require('../dist/index')
 };
 
 describe('#encoding', () => {
