@@ -1,6 +1,6 @@
 {
   "name": "@ne1410s/text",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "ES Text Utilities",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
