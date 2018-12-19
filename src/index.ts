@@ -1,7 +1,7 @@
 
 const ESCAPE_RGX = /[-\/\\^$*+?.()|[\]{}]/g;
 
-export default abstract class Text {
+export abstract class Text {
 
     /**
      * Removes leading character(s) from a body of text.
