@@ -74,7 +74,7 @@ export abstract class Text {
      */
     public static base64ToText(base64: string): string {
 
-        return Buffer.from(base64, 'base64').toString();
+        return Buffer.from(base64, 'base64').toString('binary');
     }
 
     /**
