@@ -78,16 +78,13 @@ export abstract class Text {
     }
 
     /**
-     * Encodes text as base 64 url.
-     * @param text The text.
-     * @returns The encoded base 64 url.
+     * Encodes an array buffer as base 64.
+     * @param buffer An array buffer.
+     * @returns The encoded base 64.
      */
-    public static textToBase64Url(text: string): string {
+    public static bufferToBase64(buffer: ArrayBuffer): string {
 
-        return Text.textToBase64(text)
-            .replace(/\+/g, '-')
-            .replace(/\//g, '_')
-            .replace(/=+$/g, '');
+        return Text.textToBase64(Text.bufferToText(buffer));
     }
 
     /**
@@ -98,6 +95,19 @@ export abstract class Text {
     public static bufferToBase64Url(buffer: ArrayBuffer): string {
 
         return Text.textToBase64Url(Text.bufferToText(buffer));
+    }
+
+    /**
+     * Encodes text as base 64 url.
+     * @param text The text.
+     * @returns The encoded base 64 url.
+     */
+    public static textToBase64Url(text: string): string {
+
+        return Text.textToBase64(text)
+            .replace(/\+/g, '-')
+            .replace(/\//g, '_')
+            .replace(/=+$/g, '');
     }
 
     /**
