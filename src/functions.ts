@@ -7,8 +7,7 @@ const ESCAPE_RGX = /[-\/\\^$*+?.()|[\]{}]/g;
  * @returns The trimmed text.
  */
 export function trimStart(text: string, trim: string): string {
-
-    return text.replace(new RegExp(`^${trim.replace(ESCAPE_RGX, '\\$&')}+`), '');
+  return text.replace(new RegExp(`^${trim.replace(ESCAPE_RGX, '\\$&')}+`), '');
 }
 
 /**
@@ -18,8 +17,7 @@ export function trimStart(text: string, trim: string): string {
  * @returns The trimmed text.
  */
 export function trimEnd(text: string, trim: string): string {
-
-    return text.replace(new RegExp(`${trim.replace(ESCAPE_RGX, '\\$&')}+$`), '');
+  return text.replace(new RegExp(`${trim.replace(ESCAPE_RGX, '\\$&')}+$`), '');
 }
 
 /**
@@ -29,8 +27,7 @@ export function trimEnd(text: string, trim: string): string {
  * @returns The trimmed text.
  */
 export function trimBoth(text: string, trim: string): string {
-
-    return trimEnd(trimStart(text, trim), trim);
+  return trimEnd(trimStart(text, trim), trim);
 }
 
 /**
@@ -39,9 +36,7 @@ export function trimBoth(text: string, trim: string): string {
  * @returns An array buffer.
  */
 export function textToBuffer(text: string): ArrayBuffer {
-
-    return Uint8Array.from(text.split(/(?=[\s\S])/u)
-        .map(c => c.charCodeAt(0))).buffer;
+  return Uint8Array.from(text.split(/(?=[\s\S])/u).map((c) => c.charCodeAt(0))).buffer;
 }
 
 /**
@@ -50,8 +45,7 @@ export function textToBuffer(text: string): ArrayBuffer {
  * @returns The corresponding text.
  */
 export function bufferToText(buffer: ArrayBuffer): string {
-
-    return String.fromCharCode.apply(null, new Uint8Array(buffer));
+  return String.fromCharCode.apply(null, new Uint8Array(buffer));
 }
 
 /**
@@ -60,8 +54,7 @@ export function bufferToText(buffer: ArrayBuffer): string {
  * @returns The encoded base 64.
  */
 export function textToBase64(text: string): string {
-
-    return Buffer.from(text, 'binary').toString('base64');
+  return Buffer.from(text, 'binary').toString('base64');
 }
 
 /**
@@ -70,8 +63,7 @@ export function textToBase64(text: string): string {
  * @returns The decoded text.
  */
 export function base64ToText(base64: string): string {
-
-    return Buffer.from(base64, 'base64').toString('binary');
+  return Buffer.from(base64, 'base64').toString('binary');
 }
 
 /**
@@ -80,8 +72,7 @@ export function base64ToText(base64: string): string {
  * @returns The encoded base 64.
  */
 export function bufferToBase64(buffer: ArrayBuffer): string {
-
-    return textToBase64(bufferToText(buffer));
+  return textToBase64(bufferToText(buffer));
 }
 
 /**
@@ -90,8 +81,7 @@ export function bufferToBase64(buffer: ArrayBuffer): string {
  * @returns The encoded base 64 url.
  */
 export function bufferToBase64Url(buffer: ArrayBuffer): string {
-
-    return textToBase64Url(bufferToText(buffer));
+  return textToBase64Url(bufferToText(buffer));
 }
 
 /**
@@ -100,11 +90,7 @@ export function bufferToBase64Url(buffer: ArrayBuffer): string {
  * @returns The encoded base 64 url.
  */
 export function textToBase64Url(text: string): string {
-
-    return textToBase64(text)
-        .replace(/\+/g, '-')
-        .replace(/\//g, '_')
-        .replace(/=+$/g, '');
+  return textToBase64(text).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/g, '');
 }
 
 /**
@@ -113,6 +99,5 @@ export function textToBase64Url(text: string): string {
  * @returns The encoded base 64 url.
  */
 export function objectToBase64Url(object: any): string {
-
-    return textToBase64Url(JSON.stringify(object));
+  return textToBase64Url(JSON.stringify(object));
 }
