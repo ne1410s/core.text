@@ -1,6 +1,6 @@
 {
   "name": "@ne1410s/text",
-  "version": "0.2.17",
+  "version": "0.2.18",
   "description": "Lightweight ES5 script to provide text utilities",
   "main": "dist/ne14_text.cjs.min.js",
   "module": "dist/ne14_text.esm.min.js",
